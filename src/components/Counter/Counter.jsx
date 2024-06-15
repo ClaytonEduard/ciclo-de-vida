@@ -14,6 +14,7 @@ export class Counter extends React.Component {
 
     componentDidMount() {
         console.log('O componente foi montado! ');
+        document.addEventListener('scroll', this.consoleScroll)
     }
 
     // sempre que tiver uma mudança de props ou estado
@@ -35,6 +36,10 @@ export class Counter extends React.Component {
     // componente vai desmontar
     componentWillUnmount() {
         console.log('O componente será desmonstado! ');
+        document.removeEventListener('scroll', this.consoleScroll)
+    }
+    consoleScroll() {
+        console.log('Rolando a pagina')
     }
 
     render() {
